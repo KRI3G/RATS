@@ -1,0 +1,7 @@
+FROM registry.access.redhat.com/ubi9/ubi-init
+RUN dnf -y install openssh openssh-server ncurses sudo bash-completion
+RUN systemctl enable sshd
+RUN useradd student
+RUN echo "redhat" | passwd student --stdin
+EXPOSE 22
+CMD [ "/sbin/init" ]
