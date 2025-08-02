@@ -15,12 +15,11 @@ services:
     entrypoint: ["/bin/sh", "-c"]
     command: >
       "apk add gettext && 
-      rm -f /config/config.yaml &&
       envsubst < /config/config.template.yaml > /config/config.yaml"
   containerssh:
     depends_on:
       - config-seeder
-    image: containerssh/containerssh:0.4.1
+    image: quay.io/containerssh/containerssh:v0.5.2
     ports:
       - 2222:2222
 
