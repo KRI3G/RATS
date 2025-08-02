@@ -17,6 +17,7 @@ auth:
       oidc:
         url: ${OIDC_URL}
         deviceFlow: true # Use keyboard interactive authentiation method to provide a one time code
+        authorizationFlow: true
 configserver:
   url: "http://authconfig:8080/config"
 backend: docker
