@@ -55,7 +55,7 @@ services:
   auth:
     image: python
     volumes:
-      - .auth/:/auth
+      - ./auth/:/auth:ro
     entrypoint: ["/bin/sh", "-c"]
     command: >
       "pip install -r /auth/requirements.txt &&
