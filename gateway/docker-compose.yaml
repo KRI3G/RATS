@@ -55,9 +55,15 @@ services:
     # We don't recommend using this setting in production. Please take a look
     # at https://containerssh.io/reference/dockerrun/ for hardened settings.
     user: "root"
-  authconfig:
-    # The test-authconfig server lets in the "foo" user with the "bar" password.
-    image: containerssh/containerssh-test-authconfig:0.4.1
+  # Auth server used for testing
+  auth:
+    image: python
+    volumes:
+      - .auth/:/auth
+    entrypoint: ["/bin/sh", "-c"]
+    command: >
+      "pip install -r /auth/requirements.txt &&
+      python3 /auth/auth.py"
 
 volumes:
   containerssh-config:

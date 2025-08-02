@@ -17,9 +17,10 @@ auth:
   #     oidc:
   #       url: ${OIDC_URL}
   #       deviceFlow: true # Use keyboard interactive authentiation method to provide a one time code
-  url: "http://authconfig:8080" # For testing purposes
-configserver:
-  url: "http://authconfig:8080/config"
+  password:
+    method: webhook
+    webhook:
+      url: "http://auth:5000"
 backend: docker
 docker:
   connection:
