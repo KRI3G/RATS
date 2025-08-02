@@ -20,10 +20,6 @@ services:
     depends_on:
       config-seeder:
         condition: service_completed_successfully
-    build:
-      dockerfile: Dockerfile # Docker implementation, also works with podman
-      # dockerfile: Containerfile # The correct way
-      context: ../student-container
     image: quay.io/containerssh/containerssh:v0.5.2
     ports:
       - 2222:2222
