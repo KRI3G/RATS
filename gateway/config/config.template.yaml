@@ -27,7 +27,8 @@ docker:
       # systemctl --user enable --now podman.socket
     host: unix:///var/run/docker.sock # Using docker engine
   execution:
-    # student-guest image is build from the Container file in ../student-container
-    image: localhost/student-guest
-    cmd:
-      - /bin/bash
+    container:
+      # student-guest image is build from the Container file in ../student-container
+      image: localhost/student-guest
+      cmd:
+        - /bin/bash
