@@ -8,15 +8,16 @@ log:
   level: debug
 # This assumes your organization allows for oauth2/oidc federated authentication
 auth:
-  keyboardInteractive:
-    method: oauth2
-    oauth2:
-      clientId: ${CLIENT_ID}
-      clientSecret: ${CLIENT_SECRET}
-      provider: oidc
-      oidc:
-        url: ${OIDC_URL}
-        deviceFlow: true # Use keyboard interactive authentiation method to provide a one time code
+  # keyboardInteractive:
+  #   method: oauth2
+  #   oauth2:
+  #     clientId: ${CLIENT_ID}
+  #     clientSecret: ${CLIENT_SECRET}
+  #     provider: oidc
+  #     oidc:
+  #       url: ${OIDC_URL}
+  #       deviceFlow: true # Use keyboard interactive authentiation method to provide a one time code
+  url: "http://authconfig:8080" # For testing purposes
 configserver:
   url: "http://authconfig:8080/config"
 backend: docker
