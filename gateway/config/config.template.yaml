@@ -20,7 +20,7 @@ auth:
   password:
     method: webhook
     webhook:
-      url: "http://auth:5000"
+      url: "http://auth:1337"
 backend: docker
 docker:
   connection:
