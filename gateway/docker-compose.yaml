@@ -18,7 +18,8 @@ services:
       envsubst < /config/config.template.yaml > /config/config.yaml"
   containerssh:
     depends_on:
-      - config-seeder
+      config-seeder:
+        condition: service_completed_successfully
     build:
       dockerfile: Dockerfile # Docker implementation, also works with podman
       # dockerfile: Containerfile # The correct way
