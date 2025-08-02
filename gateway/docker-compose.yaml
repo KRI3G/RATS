@@ -10,14 +10,13 @@ services:
   config-seeder:
     image: alpine:latest
     volumes:
-      - ./config:/template
-      - containerssh-config:/config/
+      - ./config:/config
     env_file: "./oidc.env"
     entrypoint: ["/bin/sh", "-c"]
     command: >
       "apk add gettext && 
       rm -f /config/config.yaml &&
-      envsubst < /template/config.template.yaml > /config/config.yaml"
+      envsubst < /config/config.template.yaml > /config/config.yaml"
   containerssh:
     depends_on:
       - config-seeder
@@ -28,7 +27,7 @@ services:
     volumes:
       # Mount the ContainerSSH config.
     - type: bind
-      source: ./config.yaml
+      source: ./config/config.yaml
       target: /etc/containerssh/config.yaml
 
       # Mount the SSH host key into the container.
