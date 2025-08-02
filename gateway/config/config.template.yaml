@@ -1,0 +1,25 @@
+---
+ssh:
+  banner: "Welcome to the Red Hat Academy Activty & Training System (RATS)!\n"
+  hostkeys:
+    - /var/secrets/ssh_host_rsa_key
+    - /var/secrets/ssh_host_ed25519_key
+log:
+  level: debug
+# This assumes your organization allows for oauth2/oidc federated authentication
+auth:
+  keyboardInteractive:
+    method: oauth2
+    oauth2:
+      clientID: ${CLIENT_ID}
+      clientSecret: ${CLIENT_SECRET}
+      provider: oidc
+      oidc:
+        url: ${OIDC_URL}
+        deviceFlow: true # Use keyboard interactive authentiation method to provide a one time code
+configserver:
+  url: "http://authconfig:8080/config"
+backend: docker
+docker:
+  connection:
+    host: unix:///var/run/docker.sock
