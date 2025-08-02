@@ -22,4 +22,12 @@ configserver:
 backend: docker
 docker:
   connection:
-    host: unix:///var/run/docker.sock
+    # host: unix:///var/run/user/1000/podman.socket
+      # This requires the user (assuming uid=1000 here) to run
+      # systemctl --user enable --now podman.socket
+    host: unix:///var/run/docker.sock # Using docker engine
+  execution:
+    # student-guest image is build from the Container file in ../student-container
+    image: localhost/student-guest
+    cmd:
+      - /bin/bash
