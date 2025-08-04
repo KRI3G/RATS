@@ -40,12 +40,10 @@ services:
       #   bind:
       #     selinux: "z"
         # Using podman socket, uid 1000 for testing
-      - /var/run/user/1000/podman/podman.sock:/var/run/podman.sock:Z
+      - /var/run/user/1022/podman/podman.sock:/var/run/podman.sock:Z
 
-    # We are changing the user back to root so we can access the Docker socket.
-    # We don't recommend using this setting in production. Please take a look
-    # at https://containerssh.io/reference/dockerrun/ for hardened settings.
-    user: "root"
+    # We are using the uid/gid of the user running the podman socket on the host
+    user: "1022:1022"
   # Auth server used for testing
   auth:
     image: python
