@@ -11,11 +11,11 @@ auth:
   # keyboardInteractive:
   #   method: oauth2
   #   oauth2:
-  #     clientId: ${CLIENT_ID}
-  #     clientSecret: ${CLIENT_SECRET}
+  #     clientId: 
+  #     clientSecret: 
   #     provider: oidc
   #     oidc:
-  #       url: ${OIDC_URL}
+  #       url: 
   #       deviceFlow: true # Use keyboard interactive authentiation method to provide a one time code
   password:
     method: webhook
@@ -24,8 +24,8 @@ auth:
 backend: docker
 docker:
   connection:
-    # host: unix:///var/run/user/${CONTAINERSSH_UID}/podman.socket
-      # This requires the containerssh user to run
+    # host: unix:///var/run/user/1000/podman.socket
+      # This requires the user (assuming uid=1000 here) to run
       # systemctl --user enable --now podman.socket
     host: unix:///var/run/docker.sock # Using docker engine
   execution:
