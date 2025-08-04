@@ -1,2 +1,2 @@
-.env
-gateway/oidc.env
+*.env
+ssh*
