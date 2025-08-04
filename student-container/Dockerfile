@@ -9,7 +9,7 @@ USER root
 COPY --from=agent /usr/bin/containerssh-agent /usr/bin/containerssh-agent
 
 # Install necessary packages
-RUN dnf -y install openssh openssh-server ncurses sudo bash-completion
+RUN dnf -y install openssh openssh-server ncurses sudo bash-completion ping nc
 
 # Enable necessary packages
 RUN systemctl enable sshd
