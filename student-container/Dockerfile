@@ -2,7 +2,7 @@
 FROM quay.io/containerssh/agent AS agent
 
 # Set UBI as last layer
-FROM registry.access.redhat.com/ubi9/ubi-init
+FROM redhat/ubi9:latest-source
 USER root
 
 # Copy containerssh agent binary
@@ -15,10 +15,10 @@ RUN dnf -y install openssh openssh-server ncurses sudo bash-completion ping nc
 RUN systemctl enable sshd
 
 # Create test student
-RUN useradd student && \
-    mkdir -p /home/student && \
-    chown student:student /home/student && \
-    echo "redhat" | passwd student --stdin
+# RUN useradd student && \
+#     mkdir -p /home/student && \
+#     chown student:student /home/student && \
+#     echo "redhat" | passwd student --stdin
 
 # Expose SSH
 EXPOSE 22

@@ -24,7 +24,7 @@ auth:
 backend: docker
 docker:
   connection:
-    host: unix:///var/run/podman.sock
+    host: unix:///var/run/docker.sock
       # This requires the containerssh user to run
       # systemctl --user enable --now podman.socket
     #host: unix:///var/run/docker.sock # Using docker engine
