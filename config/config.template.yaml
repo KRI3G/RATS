@@ -24,10 +24,10 @@ auth:
 backend: docker
 docker:
   connection:
-    host: unix:///var/run/podman.sock
+    #host: unix:///var/run/podman.sock
       # This requires the containerssh user to run
       # systemctl --user enable --now podman.socket
-    #host: unix:///var/run/docker.sock # Using docker engine
+    host: unix:///var/run/docker.sock # Using docker engine
   execution:
     container:
       # student-guest image is build from the Container file in ../student-container

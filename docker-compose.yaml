@@ -40,10 +40,10 @@ services:
       #   bind:
       #     selinux: "z"
         # Using podman socket, uid 1000 for testing
-      - /var/run/user/1022/podman/podman.sock:/var/run/podman.sock:Z
+      - /var/run/docker.sock:/var/run/docker.sock:Z
 
-    # We are using the uid/gid of the user running the podman socket on the host
-    user: "1022:1022"
+    # Running as root DO NOT DO THIS
+    user: "0:0"
   # Auth server used for testing
   auth:
     image: python
