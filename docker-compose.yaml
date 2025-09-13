@@ -7,19 +7,19 @@
 services:
   # Set environment variables used by the auth config in containerssh
   # Be sure to fill this out according to documentation
-  # config-seeder:
-  #   image: alpine:latest
-  #   volumes:
-  #     - ./config:/config:Z
-  #   env_file: "./oidc.env"
-  #   entrypoint: ["/bin/sh", "-c"]
-  #   command: >
-  #     "apk add gettext && 
-  #     envsubst < /config/config.template.yaml > /config/config.yaml"
+  config-seeder:
+    image: alpine:latest
+    volumes:
+      - ./config:/config:Z
+    env_file: "./oidc.env"
+    entrypoint: ["/bin/sh", "-c"]
+    command: >
+      "apk add gettext && 
+      envsubst < /config/config.template.yaml > /config/config.yaml"
   containerssh:
-    # depends_on:
-    #   config-seeder:
-    #     condition: service_completed_successfully
+    depends_on:
+      config-seeder:
+        condition: service_completed_successfully
     image: quay.io/containerssh/containerssh:v0.5.2
     ports:
       - 2222:2222
@@ -53,3 +53,12 @@ services:
     command: >
       "pip install -r /auth/requirements.txt &&
       python3 /auth/auth.py"
+  config:
+    image: python
+    volumes:
+      - ./config/:/config:Z
+      - ./users/:/users/:Z
+    entrypoint: ["/bin/sh", "-c"]
+    command: >
+      "pip install -r /auth/requirements.txt &&
+      python3 /config/config.py"

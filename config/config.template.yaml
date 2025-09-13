@@ -6,6 +6,8 @@ ssh:
     - /var/secrets/ssh_host_ed25519_key
 log:
   level: debug
+configserver:
+  url: "http://config:1337"
 # This assumes your organization allows for oauth2/oidc federated authentication
 auth:
   # keyboardInteractive:
@@ -32,8 +34,8 @@ docker:
     container:
       # student-guest image is build from the Container file in ../student-container
       image: quay.io/krieg/student-guest
-    mode: "connection"
-    idleCommand: ["/sbin/init"]
-    shellCommand: ["/usr/bin/bash"]
-    agentPath: "/usr/bin/containerssh-agent"
+    # mode: "connection"
+    # idleCommand: ["/sbin/init"]
+    # shellCommand: ["/usr/bin/bash"]
+    # agentPath: "/usr/bin/containerssh-agent"
     # imagePullPolicy: # Set a custom tag to pull for future versions, otherwise it will pull at every connection
