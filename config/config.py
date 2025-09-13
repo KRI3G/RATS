@@ -27,7 +27,7 @@ def handle_json_request():
         os.makedirs(folder_path, mode=0o777, exist_ok=True)
         os.umask(0o022)
         print(f"[CONFIG] Creating home directory for {authenticated_username}")
-    folder_path = os.path.abspath(folder_path)
+    #folder_path = os.path.abspath(folder_path)
 
     return jsonify({"config": {"docker": {"execution": {"host": {"binds": [f"{folder_path}:/home/{authenticated_username}:z"]}}}}})
 
