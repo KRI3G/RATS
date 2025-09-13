@@ -42,6 +42,9 @@ services:
         # Using podman socket, uid 1000 for testing
       - /var/run/docker.sock:/var/run/docker.sock:Z
 
+      # Mount users home directories
+      - ./users/:/users/:Z
+
     # Running as root DO NOT DO THIS
     user: "0:0"
   # Auth server used for testing
