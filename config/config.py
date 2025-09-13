@@ -6,6 +6,7 @@
 # authenticated to configure
 # user specific container settings
 
+import os
 from flask import Flask, request, jsonify
 
 app = Flask(__name__)
