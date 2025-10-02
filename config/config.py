@@ -44,12 +44,12 @@ def handle_json_request():
                             f"/usr/sbin/useradd {authenticated_username} -s /bin/bash && /usr/bin/su - {authenticated_username} && exit"
                         ]
                     },
-                    "idleCommand": [
-                        "/sbin/init"
-                    ],
-                    "shellCommand": [
-                        "/sbin/init"
-                    ]
+                    #"idleCommand": [
+                    #    "/sbin/init"
+                    #],
+                    #"shellCommand": [
+                    #    "/sbin/init"
+                    #]
                     #"idleCommand": [
                     #    "/bin/sh", "-c", f"/usr/sbin/useradd {authenticated_username} -s /bin/bash && /usr/bin/su - {authenticated_username}"
                     #],
