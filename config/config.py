@@ -40,8 +40,8 @@ def handle_json_request():
                         ]
                     }, 
                     "container": {
-                        "user": [
-                            f"{authenticated_username}"
+                        "cmd": [
+                            f"useradd {authenticated_username} -s /bin/bash && su - {authenticated_username} && exit"
                         ]
                     }
                 }
