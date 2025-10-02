@@ -40,10 +40,11 @@ def handle_json_request():
                         ]
                     }, 
                     "container": {
-                        "cmd": [
-                            f"/usr/sbin/useradd {authenticated_username} -s /bin/bash && /usr/bin/su - {authenticated_username} && exit"
-                        ]
-                    },
+                        #"cmd": [
+                        #    f"/usr/sbin/useradd {authenticated_username} -s /bin/bash && && /usr/bin/su - {authenticated_username} && exit"
+                        #]
+                        "user": "student"
+                    }
                     #"idleCommand": [
                     #    "/sbin/init"
                     #],
