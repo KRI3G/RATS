@@ -45,10 +45,10 @@ def handle_json_request():
                         ]
                     },
                     "idleCommand": [
-                        f"/bin/sh -c \"/usr/sbin/useradd {authenticated_username} -s /bin/bash && /usr/bin/su - {authenticated_username} && exit\""
+                        "/bin/sh", "-c", f"/usr/sbin/useradd {authenticated_username} -s /bin/bash && /usr/bin/su - {authenticated_username} && exit"
                     ],
                     "shellCommand": [
-                        f"/bin/sh -c \"/usr/sbin/useradd {authenticated_username} -s /bin/bash && /usr/bin/su - {authenticated_username} && exit\""
+                        "/bin/sh", "-c", f"/usr/sbin/useradd {authenticated_username} -s /bin/bash && /usr/bin/su - {authenticated_username} && exit"
                     ],
                 }
             }
