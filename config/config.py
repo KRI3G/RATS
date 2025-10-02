@@ -30,7 +30,7 @@ def handle_json_request():
     # folder_path = os.path.abspath(folder_path)
 
     # This depends on where your RATS is installed
-    return jsonify({"config": {"docker": {"execution": {"host": {"binds": [f"/opt/RATS/users/{authenticated_username}:/home/{authenticated_username}:z"]}}}}})
+    return jsonify({"config": {"docker": {"execution": {"host": {"binds": [f"/opt/RATS/users/{authenticated_username}:/home/{authenticated_username}:z"]}}, {"container": {"user": [f"{authenticated_username}"]}}}}})
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=1337)
