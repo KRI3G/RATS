@@ -43,7 +43,7 @@ def handle_json_request():
                         #"cmd": [
                         #    f"/usr/sbin/useradd {authenticated_username} -s /bin/bash && && /usr/bin/su - {authenticated_username} && exit"
                         #]
-                        "user": "student"
+                        #"user": "student"
                     }
                     #"idleCommand": [
                     #    "/sbin/init"
