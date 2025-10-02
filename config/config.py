@@ -39,12 +39,12 @@ def handle_json_request():
                             f"/opt/RATS/users/{authenticated_username}:/home/{authenticated_username}:z"
                         ]
                     }, 
-                    "container": {
-                        #"cmd": [
-                        #    f"/usr/sbin/useradd {authenticated_username} -s /bin/bash && && /usr/bin/su - {authenticated_username} && exit"
-                        #]
-                        #"user": "student"
-                    }
+                    #"container": {
+                    #    #"cmd": [
+                    #    #    f"/usr/sbin/useradd {authenticated_username} -s /bin/bash && && /usr/bin/su - {authenticated_username} && exit"
+                    #    #]
+                    #    #"user": "student"
+                    #}
                     #"idleCommand": [
                     #    "/sbin/init"
                     #],
