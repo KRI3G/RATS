@@ -33,7 +33,7 @@ docker:
   execution:
     container:
       # student-guest image is build from the Container file in ../student-container
-      image: registry.access.redhat.com/ubi9/ubi
+      image: quay.io/krieg/student-guest
       #image: quay.io/krieg/student-guest
     # mode: "connection"
     # idleCommand: ["/sbin/init"]
