@@ -34,15 +34,14 @@ def handle_json_request():
                 "execution": {
                     "host": {
                         "binds": [
-                            f"{folder_path}:/home/{authenticated_username}:z"
+                            f"{folder_path}:/home/user:z"
                             ]
                         }, 
-                    # "container": {
-                    #     "cmd": ["/bin/bash", "-c", "touch /test.txt"]
-                    #     #"user": "student"
-                    #     }
-                    # }
-
+                    "container": {
+                        # Default user (UID:1000) in the container is "user"
+                        "user": "user"
+                        }
+                    }
                 }
             }
         })

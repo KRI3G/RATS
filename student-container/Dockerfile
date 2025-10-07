@@ -12,10 +12,8 @@ COPY --from=agent /usr/bin/containerssh-agent /usr/bin/containerssh-agent
 RUN dnf -y install ncurses sudo bash-completion iputils nc git
 
 # Create test student
-RUN useradd student && \
-    mkdir -p /home/student && \
-    chown student:student /home/student && \
-    echo "redhat" | passwd student --stdin
+RUN useradd user && \
+    passwd -d user
 
 # Enter into init process
 CMD [ "/bin/bash" ]
