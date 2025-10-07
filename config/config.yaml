@@ -1,0 +1,42 @@
+---
+ssh:
+  banner: "Welcome to the Red Hat Academy Activty & Training System (RATS)!\n"
+  hostkeys:
+    - /var/secrets/ssh_host_rsa_key
+    - /var/secrets/ssh_host_ed25519_key
+log:
+  level: debug
+configserver:
+  url: "http://config:1337"
+# This assumes your organization allows for oauth2/oidc federated authentication
+auth:
+  # keyboardInteractive:
+  #   method: oauth2
+  #   oauth2:
+  #     clientId: 
+  #     clientSecret: 
+  #     provider: oidc
+  #     oidc:
+  #       url: 
+  #       deviceFlow: true # Use keyboard interactive authentiation method to provide a one time code
+  password:
+    method: webhook
+    webhook:
+      url: "http://auth:1337"
+backend: docker
+docker:
+  connection:
+    #host: unix:///var/run/podman.sock
+      # This requires the containerssh user to run
+      # systemctl --user enable --now podman.socket
+    host: unix:///var/run/docker.sock # Using docker engine
+  execution:
+    container:
+      # student-guest image is build from the Container file in ../student-container
+      image: quay.io/krieg/student-guest
+      #image: quay.io/krieg/student-guest
+    # mode: "connection"
+    # idleCommand: ["/sbin/init"]
+    # shellCommand: ["/usr/bin/bash"]
+    # agentPath: "/usr/bin/containerssh-agent"
+    # imagePullPolicy: # Set a custom tag to pull for future versions, otherwise it will pull at every connection

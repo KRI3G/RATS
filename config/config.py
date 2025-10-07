@@ -36,6 +36,10 @@ def handle_json_request():
                         "binds": [
                             f"{folder_path}:/home/{authenticated_username}:z"
                             ]
+                        }, 
+                    "container": {
+                        "cmd": [f"/usr/sbin/useradd {authenticated_username} -d /home/{authenticated_username} && /usr/bin/passwd -d {authenticated_username} && /usr/bin/su - {authenticated_username} && exit"]
+                        #"user": "student"
                         }
                     }
                 }
