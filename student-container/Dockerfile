@@ -11,9 +11,6 @@ COPY --from=agent /usr/bin/containerssh-agent /usr/bin/containerssh-agent
 # Install necessary packages
 RUN dnf -y install ncurses sudo bash-completion iputils nc git
 
-# Enable necessary packages
-RUN systemctl enable sshd
-
 # Create test student
 RUN useradd student && \
     mkdir -p /home/student && \
