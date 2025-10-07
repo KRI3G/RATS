@@ -13,7 +13,8 @@ RUN dnf -y install ncurses sudo bash-completion iputils nc git
 
 # Create test student
 RUN useradd user && \
-    passwd -d user
+    passwd -d user && \
+    usermod -aG wheel user
 
 # Enter into init process
 CMD [ "/bin/bash" ]
