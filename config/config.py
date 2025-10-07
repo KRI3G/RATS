@@ -28,7 +28,19 @@ def handle_json_request():
         os.umask(0o022)
         print(f"[CONFIG] Creating home directory for {authenticated_username}")
     #folder_path = os.path.abspath(folder_path)
-    return jsonify({"config": {"docker": {"execution": {"host": {"binds": [f"{folder_path}:/home/{authenticated_username}:z"]}}}}})
+    return jsonify({
+        "config": {
+            "docker": {
+                "execution": {
+                    "host": {
+                        "binds": [
+                            f"{folder_path}:/home/{authenticated_username}:z"
+                            ]
+                        }
+                    }
+                }
+            }
+        })
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=1337)
